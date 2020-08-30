@@ -23,6 +23,5 @@ let first_non_repeating_letter str =
         | [] -> None
         | first :: rest ->
             let (_, min_index) =
-                List.fold_left (
-                fun ((min_c, min_ix) as acc) (c, ix) -> if ix < min_ix then (c, ix) else acc) first rest
+                List.fold_left (fun ((min_c, min_ix) as acc) (c, ix) -> if ix < min_ix then (c, ix) else acc) first rest
             in Some str.[min_index]

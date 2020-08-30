@@ -10,7 +10,7 @@ let is_prime n =
     else if n = 1 || n mod 2 = 0 then false
     else
         let limit = n |> float_of_int |> sqrt |> floor |> int_of_float
-        in List.for_all (function k -> n mod k <> 0) (range 3 limit 2)
+        in List.for_all (fun k -> n mod k <> 0) (range 3 limit 2)
 
 
 let step g m n =

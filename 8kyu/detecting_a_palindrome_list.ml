@@ -1,1 +1,1 @@
-let is_palindrome list = List.rev list = list
+let is_palindrome lst = List.rev lst = lst

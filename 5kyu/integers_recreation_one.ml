@@ -5,7 +5,7 @@ let integer_sum_of_square_divisors k =
         else
             let acc' = if k mod d = 0 then acc + d*d else acc
             in loop acc' (d + 1) in
-    let divisor_square_sum = loop (k*k) 1 in
+    let divisor_square_sum = loop (k * k) 1 in
     let is_square_number n =
         let root = n |> float_of_int |> sqrt |> int_of_float
         in root * root = n in
