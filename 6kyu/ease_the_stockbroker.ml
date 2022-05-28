@@ -19,7 +19,7 @@ let balance_statements (str : string) : string =
             else None
         with _ -> None in
     let rec loop ((b, s) as acc) badly_formed = function
-        | [] -> ((b, s), List.rev(badly_formed))
+        | [] -> ((b, s), List.rev badly_formed)
         | x :: xs ->
             match parse_order x with
                 | None -> loop acc (x :: badly_formed) xs
