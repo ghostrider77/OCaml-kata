@@ -24,7 +24,7 @@ let create_list chars =
     let n = List.length chars in
     let k = if n mod 5 = 0 then n / 5 else n / 5 + 1 in
     let rec loop acc = function
-        | [] -> List.rev_map (function lst -> lst |> List.map (String.make 1) |> String.concat "") acc
+        | [] -> List.rev_map (fun lst -> lst |> List.map (String.make 1) |> String.concat "") acc
         | cs ->
             let open Batteries in
             let first = List.take k cs in
@@ -45,7 +45,7 @@ let encode (s: string) (shift: int): string list =
 let decode (a: string list): string =
     match a |> String.concat "" |> String.to_seq |> List.of_seq with
         | c :: c' :: rest ->
-            let s = (Char.code c' - Char.code c) mod 26 in
+            let s = Char.(code c' - code c) mod 26 in
             let shift = if s < 0 then s + 26 else s in
             rest |> List.map (shift_letter (-shift)) |> List.map (String.make 1) |> String.concat ""
         | _ -> ""
