@@ -1,7 +1,7 @@
 exception Empty_list of string
 
 
-let head  = function
+let head = function
     | [] -> raise (Empty_list "Head of empty list")
     | x :: xss -> x
 
